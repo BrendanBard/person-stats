@@ -18,17 +18,20 @@ function handleSubmit(ev) {
 
   const colorItem = document.createElement('li')
   colorItem.textContent = 'Favorite Color: '
-
-  const colorDiv = document.createElement('div')
-  colorDiv.style.backgroundColor = favoriteColor
-  colorDiv.style.width = '6rem'
-  colorDiv.style.height = '3rem'
-  colorItem.appendChild(colorDiv)
-
   list.appendChild(colorItem)
-
+  const div = renderColor(favoriteColor)
+  list.appendChild(div)
   const stats = document.querySelector('#stats')
   stats.appendChild(list)
+}
+
+//renderColor
+function renderColor(favoriteColor){
+    const colorDiv = document.createElement('div')
+    colorDiv.style.backgroundColor = favoriteColor
+    colorDiv.style.width = '6rem'
+    colorDiv.style.height = '3rem'
+    return colorDiv
 }
 
 const personForm = document.querySelector('#person-form')

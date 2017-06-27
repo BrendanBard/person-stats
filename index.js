@@ -1,41 +1,35 @@
-function updateHeading(ev){
-ev.preventDefault()
-const f = ev.target
-const nameField = f.personName
-const heading = document.querySelector('h1')
-heading.textContent = nameField.value
-}
+function handleSubmit(ev) {
+  ev.preventDefault()
+  const f = ev.target
 
-function updateDiv(ev){
-ev.preventDefault()
-const y = ev.target
-const color = y.personColor
-const name = y.personName
-const div = document.querySelector('div')
-const details = document.querySelector('#stats p')
+  const name = f.personName.value
+  const age = f.age.value
+  const favoriteColor = f.favoriteColor.value
 
-const list = document.createElement('ul')
-const nameItem = document.createElement('li')
-nameItem.textContent = `Name: ${name.value} `
-list.appendChild(nameItem)
+  const list = document.createElement('ul')
 
+  const nameItem = document.createElement('li')
+  nameItem.textContent = `Name: ${name}`
+  list.appendChild(nameItem)
 
-//const ageItem = document.createElement('li')  etc
-const colorItem = document.createElement('li')
-colorItem.textContent = `Color: ${color.value}`
-const colorDiv = document.createElement('div')
-//colorDiv.style.backgroundColor = color.value
-colorDiv.style.width = '6rem'
-colorDiv.style.height = '3rem'
-colorDiv.style.backgroundColor = color.value
-//colorDiv.style.'center'
-colorItem.appendChild(colorDiv)
-list.appendChild(colorItem)
+  const ageItem = document.createElement('li')
+  ageItem.textContent = `Age: ${age}`
+  list.appendChild(ageItem)
 
+  const colorItem = document.createElement('li')
+  colorItem.textContent = 'Favorite Color: '
 
-stats.appendChild(list)
+  const colorDiv = document.createElement('div')
+  colorDiv.style.backgroundColor = favoriteColor
+  colorDiv.style.width = '6rem'
+  colorDiv.style.height = '3rem'
+  colorItem.appendChild(colorDiv)
 
+  list.appendChild(colorItem)
+
+  const stats = document.querySelector('#stats')
+  stats.appendChild(list)
 }
 
 const personForm = document.querySelector('#person-form')
-personForm.addEventListener('submit', updateDiv)
+personForm.addEventListener('submit', handleSubmit)

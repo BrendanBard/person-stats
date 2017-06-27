@@ -23,17 +23,18 @@ list.appendChild(nameItem)
 //const ageItem = document.createElement('li')  etc
 const colorItem = document.createElement('li')
 colorItem.textContent = `Color: ${color.value}`
+const colorDiv = document.createElement('div')
+colorDiv.style.backgroundColor = color.value
+colorDiv.style.width = '6rem'
+colorDiv.style.height = '3rem'
 colorItem.style.backgroundColor = color.value
+colorItem.appendChild(colorDiv)
 list.appendChild(colorItem)
 
 
 stats.appendChild(list)
 
-//div.textContent = name.value + " likes: " + color.value 
-//details.textContent = color.value
-//div.style.color = color.value
 }
 
 const personForm = document.querySelector('#person-form')
-//personForm.addEventListener('submit', updateHeading)
 personForm.addEventListener('submit', updateDiv)

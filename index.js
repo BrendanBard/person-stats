@@ -1,37 +1,40 @@
 function handleSubmit(ev) {
-  ev.preventDefault()
-  const f = ev.target
+    ev.preventDefault()
+    const f = ev.target
 
-  const name = f.personName.value
-  const age = f.age.value
-  const favoriteColor = f.favoriteColor.value
+    const name = f.personName.value
+    const age = f.age.value
+    const favoriteColor = f.favoriteColor.value
 
-  const list = document.createElement('ul')
+    const list = document.createElement('ul')
+    const nameItem = renderListItem(`Name: ${name}`)
+    const ageItem = renderListItem(`Age: ${age}`)
+    const favoriteColorItem = renderListItem('Favorite Color: ')
+    list.appendChild(nameItem)
+    list.appendChild(ageItem)
+    list.appendChild(favoriteColorItem)
 
-  const nameItem = document.createElement('li')
-  nameItem.textContent = `Name: ${name}`
-  list.appendChild(nameItem)
 
-  const ageItem = document.createElement('li')
-  ageItem.textContent = `Age: ${age}`
-  list.appendChild(ageItem)
 
-  const colorItem = document.createElement('li')
-  colorItem.textContent = 'Favorite Color: '
-  list.appendChild(colorItem)
-  const div = renderColor(favoriteColor)
-  list.appendChild(div)
-  const stats = document.querySelector('#stats')
-  stats.appendChild(list)
+    const div = renderColor(favoriteColor)
+    list.appendChild(div)
+    const stats = document.querySelector('#stats')
+    stats.appendChild(list)
 }
 
 //renderColor
-function renderColor(favoriteColor){
+function renderColor(favoriteColor) {
     const colorDiv = document.createElement('div')
     colorDiv.style.backgroundColor = favoriteColor
     colorDiv.style.width = '6rem'
     colorDiv.style.height = '3rem'
     return colorDiv
+}
+//renderListItem
+function renderListItem(contentType) {
+    const content = document.createElement('li')
+    content.textContent = contentType
+    return content
 }
 
 const personForm = document.querySelector('#person-form')

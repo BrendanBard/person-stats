@@ -24,10 +24,11 @@ list.appendChild(nameItem)
 const colorItem = document.createElement('li')
 colorItem.textContent = `Color: ${color.value}`
 const colorDiv = document.createElement('div')
-colorDiv.style.backgroundColor = color.value
+//colorDiv.style.backgroundColor = color.value
 colorDiv.style.width = '6rem'
 colorDiv.style.height = '3rem'
-colorItem.style.backgroundColor = color.value
+colorDiv.style.backgroundColor = color.value
+//colorDiv.style.'center'
 colorItem.appendChild(colorDiv)
 list.appendChild(colorItem)
 
